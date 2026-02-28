@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>张三 - 个人简历</title>
+    <title>李明 - 软件工程师</title>
     <style>
         * {
             margin: 0;
@@ -12,67 +12,57 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
+            color: #1a1a1a;
+            background: #f5f7fa;
+            padding: 40px 20px;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px;
-            text-align: center;
-        }
-
-        .avatar {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-            border: 4px solid rgba(255, 255, 255, 0.3);
+            padding: 50px 40px;
+            border-bottom: 1px solid #e5e7eb;
         }
 
         .name {
-            font-size: 36px;
-            font-weight: bold;
-            margin-bottom: 10px;
+            font-size: 32px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 8px;
         }
 
         .title {
-            font-size: 20px;
-            opacity: 0.9;
+            font-size: 16px;
+            color: #6b7280;
             margin-bottom: 20px;
         }
 
         .contact {
             display: flex;
-            justify-content: center;
-            gap: 30px;
+            gap: 20px;
             flex-wrap: wrap;
         }
 
         .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
             font-size: 14px;
+            color: #6b7280;
+        }
+
+        .contact-item a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
         }
 
         .content {
@@ -80,142 +70,156 @@
         }
 
         .section {
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
 
         .section-title {
-            font-size: 24px;
-            font-weight: bold;
-            color: #667eea;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
+            font-size: 14px;
+            font-weight: 600;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #2563eb;
         }
 
         .intro {
-            font-size: 16px;
-            color: #666;
-            line-height: 1.8;
+            font-size: 15px;
+            color: #4b5563;
+            line-height: 1.7;
         }
 
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: 12px;
+            margin-top: 12px;
         }
 
-        .skill-tag {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 25px;
+        .skill-item {
+            display: flex;
+            align-items: center;
             font-size: 14px;
-            transition: transform 0.3s;
+            color: #374151;
         }
 
-        .skill-tag:hover {
-            transform: scale(1.05);
+        .skill-item::before {
+            content: "•";
+            color: #2563eb;
+            font-weight: bold;
+            margin-right: 8px;
         }
 
         .experience-item {
-            margin-bottom: 25px;
-            padding-left: 20px;
-            border-left: 3px solid #667eea;
+            margin-bottom: 24px;
         }
 
         .experience-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             flex-wrap: wrap;
         }
 
         .company {
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
+            font-size: 16px;
+            font-weight: 600;
+            color: #111827;
         }
 
         .date {
-            font-size: 14px;
-            color: #999;
+            font-size: 13px;
+            color: #9ca3af;
         }
 
         .position {
-            font-size: 16px;
-            color: #667eea;
-            margin-bottom: 10px;
+            font-size: 14px;
+            color: #2563eb;
+            margin-bottom: 6px;
         }
 
         .description {
-            font-size: 15px;
-            color: #666;
-            line-height: 1.7;
+            font-size: 14px;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .description ul li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 4px;
+        }
+
+        .description ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #9ca3af;
         }
 
         .education-item {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             flex-wrap: wrap;
         }
 
         .school {
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
+            font-size: 15px;
+            font-weight: 500;
+            color: #111827;
         }
 
         .education-info {
             font-size: 14px;
-            color: #666;
+            color: #6b7280;
         }
 
-        .footer {
-            text-align: center;
-            padding: 20px;
-            background: #f5f5f5;
-            color: #999;
-            font-size: 14px;
+        .tag {
+            display: inline-block;
+            background: #eff6ff;
+            color: #1e40af;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 6px;
+            margin-bottom: 6px;
         }
 
         @media (max-width: 600px) {
             body {
-                padding: 10px;
+                padding: 20px 10px;
             }
 
             .header {
-                padding: 30px 20px;
-            }
-
-            .avatar {
-                width: 120px;
-                height: 120px;
-                font-size: 48px;
+                padding: 35px 25px;
             }
 
             .name {
-                font-size: 28px;
+                font-size: 26px;
             }
 
-            .title {
-                font-size: 16px;
+            .content {
+                padding: 30px 25px;
             }
 
             .contact {
                 flex-direction: column;
-                gap: 10px;
-            }
-
-            .content {
-                padding: 25px;
+                gap: 8px;
             }
 
             .experience-header {
                 flex-direction: column;
-                gap: 5px;
+                gap: 4px;
             }
         }
     </style>
@@ -223,13 +227,12 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="avatar">👤</div>
-            <div class="name">张三</div>
-            <div class="title">全栈开发工程师</div>
+            <div class="name">李明</div>
+            <div class="title">高级软件工程师 | 全栈开发</div>
             <div class="contact">
-                <div class="contact-item">📧 zhangsan@example.com</div>
-                <div class="contact-item">📱 138-8888-8888</div>
-                <div class="contact-item">🌐 github.com/zhangsan</div>
+                <div class="contact-item">📧 liming.dev@example.com</div>
+                <div class="contact-item">📱 139-6666-6666</div>
+                <div class="contact-item">🌐 <a href="https://github.com/liming-dev" target="_blank">github.com/liming-dev</a></div>
             </div>
         </div>
 
@@ -237,25 +240,25 @@
             <div class="section">
                 <h2 class="section-title">个人简介</h2>
                 <p class="intro">
-                    热爱编程的全栈开发工程师，拥有5年互联网开发经验。专注于前后端技术栈，
-                    擅长使用现代Web技术构建高质量的应用程序。对新技术充满热情，
-                    具备良好的团队协作能力和项目管理经验。
+                    6年软件开发经验，专注于后端架构设计与全栈开发。精通 Java/Python/Go 多种编程语言，
+                    在高并发、微服务、分布式系统方面有深入实践。开源贡献者，技术博客作者，
+                    持续关注云原生和 DevOps 技术演进。
                 </p>
             </div>
 
             <div class="section">
-                <h2 class="section-title">专业技能</h2>
-                <div class="skills">
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">React</span>
-                    <span class="skill-tag">Vue.js</span>
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">MongoDB</span>
-                    <span class="skill-tag">MySQL</span>
-                    <span class="skill-tag">Docker</span>
-                    <span class="skill-tag">Git</span>
-                    <span class="skill-tag">AWS</span>
+                <h2 class="section-title">技术栈</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">Java (Spring Boot)</div>
+                    <div class="skill-item">Python (Django/FastAPI)</div>
+                    <div class="skill-item">Go (Gin/Echo)</div>
+                    <div class="skill-item">JavaScript/TypeScript</div>
+                    <div class="skill-item">React/Vue.js</div>
+                    <div class="skill-item">MySQL/PostgreSQL</div>
+                    <div class="skill-item">MongoDB/Redis</div>
+                    <div class="skill-item">Kubernetes/Docker</div>
+                    <div class="skill-item">AWS/阿里云</div>
+                    <div class="skill-item">CI/CD (Jenkins/GitLab CI)</div>
                 </div>
             </div>
 
@@ -263,26 +266,32 @@
                 <h2 class="section-title">工作经历</h2>
                 <div class="experience-item">
                     <div class="experience-header">
-                        <div class="company">科技创新有限公司</div>
-                        <div class="date">2021.06 - 至今</div>
+                        <div class="company">字节跳动</div>
+                        <div class="date">2022.03 - 至今</div>
                     </div>
-                    <div class="position">高级全栈工程师</div>
+                    <div class="position">高级软件工程师</div>
                     <div class="description">
-                        负责公司核心产品的前后端开发，主导技术架构设计和优化。
-                        使用 React + Node.js 构建高性能Web应用，用户量达到100万+。
-                        推进DevOps实践，部署效率提升50%。
+                        <ul>
+                            <li>负责核心推荐系统的后端架构设计与优化，支撑日均千万级请求</li>
+                            <li>主导从单体架构向微服务迁移，系统可用性从 99.5% 提升至 99.99%</li>
+                            <li>设计并实现分布式缓存方案，降低数据库负载 60%</li>
+                            <li>推动技术债务清理，重构遗留代码，提升团队开发效率</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="experience-item">
                     <div class="experience-header">
-                        <div class="company">互联网创业公司</div>
-                        <div class="date">2019.03 - 2021.05</div>
+                        <div class="company">阿里巴巴</div>
+                        <div class="date">2019.07 - 2022.02</div>
                     </div>
-                    <div class="position">前端工程师</div>
+                    <div class="position">软件工程师</div>
                     <div class="description">
-                        参与多个项目的开发，负责前端架构设计和核心模块实现。
-                        使用 Vue.js 开发响应式Web应用，优化用户体验。
-                        建立组件库，提升团队开发效率30%。
+                        <ul>
+                            <li>参与电商交易链路开发，处理高并发场景下的订单处理与支付流程</li>
+                            <li>实现分布式事务解决方案，确保数据一致性</li>
+                            <li>参与性能优化专项，将接口响应时间从 200ms 降至 50ms</li>
+                            <li>编写技术文档，指导新成员快速上手项目</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -290,18 +299,39 @@
             <div class="section">
                 <h2 class="section-title">教育背景</h2>
                 <div class="education-item">
-                    <div class="school">北京大学</div>
-                    <div class="education-info">计算机科学与技术 · 本科 · 2015-2019</div>
+                    <div class="school">上海交通大学</div>
+                    <div class="education-info">计算机科学 · 硕士 · 2017-2019</div>
                 </div>
                 <div class="education-item">
-                    <div class="school">清华大学</div>
-                    <div class="education-info">软件工程 · 硕士 · 2019-2021</div>
+                    <div class="school">浙江大学</div>
+                    <div class="education-info">软件工程 · 本科 · 2013-2017</div>
                 </div>
             </div>
-        </div>
 
-        <div class="footer">
-            <p>© 2024 张三 · 期待与您的合作</p>
+            <div class="section">
+                <h2 class="section-title">项目经验</h2>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company">开源项目：高性能日志分析系统</div>
+                        <div class="date">2021.06 - 2021.12</div>
+                    </div>
+                    <div class="description">
+                        <span class="tag">Go</span>
+                        <span class="tag">Kafka</span>
+                        <span class="tag">Elasticsearch</span>
+                        <p style="margin-top: 10px;">基于 Go 语言开发的分布式日志收集与分析系统，支持实时检索和可视化展示。在 GitHub 获得超过 500 stars。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">证书 & 认证</h2>
+                <div style="font-size: 14px; color: #4b5563;">
+                    <span class="tag">AWS Certified Solutions Architect</span>
+                    <span class="tag">CKA - Kubernetes Administrator</span>
+                    <span class="tag">PMP 项目管理专业人士</span>
+                </div>
+            </div>
         </div>
     </div>
 </body>
