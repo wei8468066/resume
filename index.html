@@ -11,37 +11,65 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg-primary: #f5f7fa;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4b5563;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+            --accent-color: #2563eb;
+            --accent-light: #eff6ff;
+            --accent-dark: #1e40af;
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 深色模式变量 */
+        [data-theme="dark"] {
+            --bg-primary: #1a1a1a;
+            --bg-card: #2d2d2d;
+            --text-primary: #f0f0f0;
+            --text-secondary: #d1d5db;
+            --text-muted: #9ca3af;
+            --border-color: #404040;
+            --accent-color: #60a5fa;
+            --accent-light: #1e3a8a;
+            --accent-dark: #93c5fd;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #1a1a1a;
-            background: #f5f7fa;
+            color: var(--text-primary);
+            background: var(--bg-primary);
             padding: 40px 20px;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
-            background: white;
+            background: var(--bg-card);
             border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
         }
 
         .header {
             padding: 50px 40px;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .name {
             font-size: 32px;
             font-weight: 700;
-            color: #111827;
+            color: var(--text-primary);
             margin-bottom: 8px;
         }
 
         .title {
             font-size: 16px;
-            color: #6b7280;
+            color: var(--text-muted);
             margin-bottom: 20px;
         }
 
@@ -53,11 +81,11 @@
 
         .contact-item {
             font-size: 14px;
-            color: #6b7280;
+            color: var(--text-muted);
         }
 
         .contact-item a {
-            color: #2563eb;
+            color: var(--accent-color);
             text-decoration: none;
         }
 
@@ -76,17 +104,17 @@
         .section-title {
             font-size: 14px;
             font-weight: 600;
-            color: #111827;
+            color: var(--text-primary);
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 16px;
             padding-bottom: 8px;
-            border-bottom: 2px solid #2563eb;
+            border-bottom: 2px solid var(--accent-color);
         }
 
         .intro {
             font-size: 15px;
-            color: #4b5563;
+            color: var(--text-secondary);
             line-height: 1.7;
         }
 
@@ -101,12 +129,12 @@
             display: flex;
             align-items: center;
             font-size: 14px;
-            color: #374151;
+            color: var(--text-primary);
         }
 
         .skill-item::before {
             content: "•";
-            color: #2563eb;
+            color: var(--accent-color);
             font-weight: bold;
             margin-right: 8px;
         }
@@ -126,23 +154,23 @@
         .company {
             font-size: 16px;
             font-weight: 600;
-            color: #111827;
+            color: var(--text-primary);
         }
 
         .date {
             font-size: 13px;
-            color: #9ca3af;
+            color: var(--text-muted);
         }
 
         .position {
             font-size: 14px;
-            color: #2563eb;
+            color: var(--accent-color);
             margin-bottom: 6px;
         }
 
         .description {
             font-size: 14px;
-            color: #4b5563;
+            color: var(--text-secondary);
             line-height: 1.6;
         }
 
@@ -161,7 +189,7 @@
             content: "→";
             position: absolute;
             left: 0;
-            color: #9ca3af;
+            color: var(--text-muted);
         }
 
         .education-item {
@@ -175,24 +203,53 @@
         .school {
             font-size: 15px;
             font-weight: 500;
-            color: #111827;
+            color: var(--text-primary);
         }
 
         .education-info {
             font-size: 14px;
-            color: #6b7280;
+            color: var(--text-muted);
         }
 
         .tag {
             display: inline-block;
-            background: #eff6ff;
-            color: #1e40af;
+            background: var(--accent-light);
+            color: var(--accent-dark);
             padding: 4px 10px;
             border-radius: 4px;
             font-size: 12px;
             font-weight: 500;
             margin-right: 6px;
             margin-bottom: 6px;
+        }
+
+        /* 主题切换按钮 */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+            z-index: 1000;
+            font-size: 24px;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.95);
         }
 
         @media (max-width: 600px) {
@@ -221,10 +278,23 @@
                 flex-direction: column;
                 gap: 4px;
             }
+
+            .theme-toggle {
+                top: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- 主题切换按钮 -->
+    <button class="theme-toggle" id="themeToggle" title="切换深色/浅色模式">
+        🌙
+    </button>
+
     <div class="container">
         <div class="header">
             <div class="name">陈仁伟</div>
@@ -342,12 +412,57 @@
 
             <div class="section">
                 <h2 class="section-title">技能证书</h2>
-                <div style="font-size: 14px; color: #4b5563;">
+                <div style="font-size: 14px; color: var(--text-secondary);">
                     <span class="tag">Oracle Certified Professional Java SE 11</span>
                     <span class="tag">CKA - Kubernetes Administrator</span>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        // 主题切换逻辑
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        // 检查本地存储的主题偏好
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', savedTheme);
+        updateToggleIcon(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateToggleIcon(newTheme);
+        });
+
+        function updateToggleIcon(theme) {
+            if (theme === 'dark') {
+                themeToggle.textContent = '☀️';
+            } else {
+                themeToggle.textContent = '🌙';
+            }
+        }
+
+        // 检测系统主题偏好
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (!localStorage.getItem('theme')) {
+                html.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+                updateToggleIcon(prefersDark ? 'dark' : 'light');
+            }
+        }
+
+        // 监听系统主题变化
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                html.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+                updateToggleIcon(e.matches ? 'dark' : 'light');
+            }
+        });
+    </script>
 </body>
 </html>
